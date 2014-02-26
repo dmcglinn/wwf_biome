@@ -1,8 +1,10 @@
 
 library(vegan)
-source('./wwf_biome/biome_functions.R')
+source('biome_functions.R')
 
-biome = load_biomes('./data_products/spbiomes.csv')
+dir.create('./figs/')
+
+biome = load_biomes('../data_products/spbiomes.csv')
 
 ## create a biome file for the genera names
 genera = get_genera(rownames(biome))
@@ -19,7 +21,7 @@ biome_genus_freq = biome_genus / rowSums(biome_genus)
 freq_var = apply(biome_freq, 1, var)
 freq_genus_var = apply(biome_genus_freq, 1, var)
 
-png('./wwf_biome/fig/var_dist.png', width = 480)
+png('./figs/var_dist.png', width = 480)
   par(mfrow=c(1, 1))
   plot(density(freq_var),xlab='',ylab='',main='',ylim=c(0,25),
        xlim=c(0, 0.13),lwd=3,axes=F,col='red')
@@ -36,7 +38,7 @@ dev.off()
 biome_ranked = t(apply(biome_freq,1,sort,dec=TRUE))
 rank_avgs = apply(biome_ranked,2,mean)
 
-png('./wwf_biome/fig/biome_RAD.png',width=540 * 2)
+png('./figs/biome_RAD.png',width=540 * 2)
   cls = rgb(255,0,0,alpha=0.01 * 255, maxColorValue = 255)
   par(mfrow=c(1,2))
   plot(0:1,1:2,type='n',ylim=c(0,1),xlim=c(1,8),xlab='',ylab='',axes=F)
@@ -66,7 +68,7 @@ for(i in seq_along(cutoffs)){
   ge_biome_count[i] = mean(rowSums(tmp_ge))
 }
 
-png('./wwf_biome/fig/avg_biome_counts.png', width = 480)
+png('./figs/avg_biome_counts.png', width = 480)
   par(mfrow=c(1,1))
   plot(cutoffs*100, sp_biome_count, col='red', type='l',
        lwd=3, axes=F, ylim=c(1,4), xlab='', ylab='')
@@ -77,7 +79,7 @@ png('./wwf_biome/fig/avg_biome_counts.png', width = 480)
 dev.off()
 
 ## which biomes are most well represented in the data
-png('./wwf_biome/fig/sample_biome_barplot.png')
+png('./figs/sample_biome_barplot.png')
   par(mfrow=c(1,1))
   barplot(colSums(biome), cex.names=0.01, ylab='',cex=2,
           names.arg=c('broad', 'conf', 'dese', 'grass', 'mang', 'med', 
@@ -86,7 +88,7 @@ png('./wwf_biome/fig/sample_biome_barplot.png')
                   "lightpink", "dodgerblue", "grey"))
 dev.off()
 ##
-png('./wwf_biome/fig/species_biome_barplot.png')
+png('./figs/species_biome_barplot.png')
   par(mfrow=c(1,1))
   barplot(colSums(get_binary_biomes(biome,cutoff=0.05)), cex.names=0.01, ylab='',cex=2,
           names.arg=c('broad', 'conf', 'dese', 'grass', 'mang', 'med', 
@@ -108,7 +110,7 @@ text(pca,display='wa')
 plot(pca_corr,type='n')
 text(pca_corr,display='wa')
 
-png('./wwf_biome/fig/pca_corr.png')
+png('./figs/pca_corr.png')
   plot(pca_corr,type='n')
   text(pca_corr,display='wa')
 dev.off()

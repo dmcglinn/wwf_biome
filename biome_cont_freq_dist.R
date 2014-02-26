@@ -3,12 +3,14 @@ library(vegan)
 library(maptools)
 gpclibPermit()
 
-source('./wwf_biome/biome_functions.R')
+source('biome_functions.R')
 
-biome_cont = load_biomes('./data_products/spbiomecontinent.csv')
+biome_cont = load_biomes('../data_products/spbiomecontinent.csv')
 
-load('~/gis/WWFecoregionbiome/wwfeco.Rdata')
-load('gbif_geog.Rdata')
+load('../wwfeco.Rdata')
+load('../gbif_geog.Rdata')
+
+dir.create('./figs')
 
 plot(countryDat)
 
@@ -16,7 +18,7 @@ plot(countryDat)
 #cont_shp = unionSpatialPolygons(countryDat, ID=countryDat$continent)
 #save(cont_shp,file='continent_shape.Rdata')
 load('continent_shape.Rdata')
-png('./wwf_biome/fig/world_continent.png',
+png('./figs/world_continent.png',
     width = 480 * 3, height = 480 * 3)
 plot(cont_shp)
 #points(coordinates(cont_shp),pch=19) # gives centroids
@@ -40,19 +42,19 @@ cls = c("green3","darkgreen", "brown", "mediumpurple","cyan",
         "lightpink", "dodgerblue", "grey")
 for(i in 1:8){
   par(mfrow=c(1,1))
-  png(paste('./wwf_biome/fig/',c_names_uni[i],'_samp_pie.png',sep=""), bg = 'transparent')
+  png(paste('./figs/',c_names_uni[i],'_samp_pie.png',sep=""), bg = 'transparent')
   pie(biome_cont_sum[c_names == c_names_uni[i]],main=c_names_uni[i],
       col = cls, labels = b_names_uni, cex = 1.25)
   dev.off()
   ##
-  png(paste('./wwf_biome/fig/',c_names_uni[i],'_sp_pie.png',sep=""), bg = 'transparent')
+  png(paste('./figs/',c_names_uni[i],'_sp_pie.png',sep=""), bg = 'transparent')
   pie(biome_cont_bin_sum[c_names == c_names_uni[i]],main=c_names_uni[i],
       col = cls, labels = b_names_uni, cex = 1.25)
   dev.off()
 }  
 
 ## make legend
-png('./wwf_biome/fig/pie_legend.png',
+png('./figs/pie_legend.png',
     width = 480 * 3, height = 480 * 3)
 par(mar=rep(0,4))
 plot(1:10,1:10,type='n',axes=F,xlab='',ylab='')

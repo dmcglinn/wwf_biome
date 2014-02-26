@@ -1,4 +1,3 @@
-## $Id$
 ## script creates object biomeSubBin in which the
 ## biome variables have been converted to binary
 

@@ -1,13 +1,11 @@
-## $Id$
 library('ape')
 library('diversitree')
 
-## setwd('c:/users/dan mcglinn/dropbox/code/')
-biome <- read.csv('../_rawdata/spbiomes.csv',header=TRUE)
-phy <- read.tree('../_rawdata/trees/Land.plant.tre')
+biome <- read.csv('../data_products/spbiomes.csv',header=TRUE)
+phy <- read.tree('../../trees/tempomode_trees_02112013/tempo_scrubbed_CONSTRAINT_rooted.dated.tre')
 
 ## carry out initial data filtering, biome lumping, and convert to binary
-source('../gbif/GBIF_biome_filter_for_analysis.R')
+source('GBIF_biome_filter_for_analysis.R')
 
 ## convert biome counts to binary using 5% treashold
 rowsums = rowSums(biomeSub)

@@ -1,10 +1,6 @@
-## $Id$
-
 library(maps)
 
-setwd('c:/users/dan mcglinn/documents/lab data/gbif/trunk')
-
-spclim = read.csv('spclimate.csv',header=TRUE)
+spclim = read.csv('../data_products/spclimate.csv',header=TRUE)
 names(spclim)
 attach(spclim)
 
