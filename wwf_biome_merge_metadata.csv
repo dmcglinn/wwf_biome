@@ -1,0 +1,12 @@
+column_names,description
+Code,"A three letter code to abbrevate the field ""Fine"""
+eco_code,the WWF ecoregion code
+eco_name,the WWF ecoregion name
+Coarsest,coarsest level of reclassification
+Coarse,coarse level of reclassification
+Med.coarse,medium coarse level of reclassification
+Med.fine,medium fine level of reclassificaition
+Fine,fine level of reclassificaition
+Color,RGB code for creating maps
+Notes,additional notes on the WWF ecoregion
+
