@@ -1,0 +1,68 @@
+Tropical evergreen:
+- Tropical Moist Forest
+# Trop Moist
+
+Tropical deciduous:
+- Tropical Dry Forest (excluding India?)
+# Trop Dry
+
+Warm-temperate broadleaf forest:
+- Temperate Broadleaf Forest
+# Temp Broad N of 0 parallel
+
+Coniferous forest:
+- Coniferous forest *excluding Floridian pine savannas >> example
+# Boreal
+# Temp conif
+# Trop conif N of 23.5 N parallel
+
+Austral temperate evergreen forest:
+- (Argentina/Chile + SE Australia + New Zealand) *currently nested within "Temperate Broadleaf Forest"
+# Temp Broad S of 0 parallel
+
+Savanna and scrubland:
+- Tropical Grassland
+- Flooded Grassland
+- (Xeric tropical shrubland: Brazil, Guyana + Venezeula, India) *currently nested within "Desert"
+- (SE North American pine savanna) *currently nested within "Coniferous Forest"
+- (India?)
+# Trop Grass
+# Flood Grass 
+# Desert [Get bounding boxes]
+# Trop Conif S of 23.5 N parallel + [bounding box]
+
+Temperate Grassland:
+- Temperate Grassland
+# Temp Grass
+
+Montane Tropical Grassland:
+- Montane Grassland (tropical *use latitude to split this category)
+# Montane [outdside 
+
+Mediterranean:
+- Mediterranean
+
+Desert:
+- Desert *excluding zones re-classified into other groups
+- Montane Grassland (temperate *use latitude to split this category)
+
+Mangrove:
+- Mangrove
+
+Tundra:
+- Tundra *excluding ice sheets
+
+(Ice):
+- excluded from the "Tundra" layer
+
+Issues:
+
+* Send Mark, Ian an email re this:
+- In particular, classification of SE Australian forests, mediterranean zones
+
+Transition zones exist between:
+- Temperate deciduous and tropical forest (NE Asia)
+- Tropical and temperate grassland (Australia)
+
+Other issues:
+- Pakistan is a disaster: it is entirely classified as desert. Oh well.
